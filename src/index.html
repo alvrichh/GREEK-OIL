@@ -6,6 +6,11 @@
   <meta name="description" content="DEVOO Imports — Premium Farmako olive oil sourced directly from family farms in Southern Greece. Wholesale & private label available." />
   <meta property="og:title" content="DEVOO Imports — Straight from the Source" />
   <meta property="og:description" content="Premium Mediterranean olive oil and artisan products, sourced directly from family farms in Southern Greece." />
+  <meta property="og:image" content="/assets/images/gallery-03.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <link rel="preload" as="video" href="/assets/videos/video.mp4" type="video/mp4">
   <link rel="icon" type="image/jpeg" href="/assets/logos/devoo-logo-full.jpeg" />
   <title>DEVOO Imports — Straight from the Source</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -17,10 +22,10 @@
 <!-- ─── TOPBAR ──────────────────────────────────────────── -->
 <div class="site-topbar">
   <div class="site-topbar__actions">
-    <a href="#contact">Sign In</a>
+    <a href="#wholesale">Wholesale</a>
     <span class="sep">|</span>
-    <a href="#contact">My Account</a>
-    <a href="#contact" class="cart" aria-label="Cart">&#128722;</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:greeksuperfoods@yahoo.com" class="cart" aria-label="Email us">✉</a>
   </div>
 </div>
 
@@ -59,12 +64,15 @@
     </button>
   </div>
 
-  <!-- Mobile nav overlay -->
-  <nav class="site-header__mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <button class="mobile-close" id="mobile-close" aria-label="Close menu">&#10005;</button>
-  </nav>
 
 </header>
+
+<!-- Mobile nav overlay — outside <header> intentionally:
+     backdrop-filter on header creates new fixed-pos containing block,
+     trapping position:fixed children inside it. -->
+<nav class="site-header__mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <button class="mobile-close" id="mobile-close" aria-label="Close menu">&#10005;</button>
+</nav>
 
 <main>
 
@@ -258,7 +266,7 @@
             min-camera-orbit="auto 60deg 1.4m"
             max-camera-orbit="auto 100deg 3m"
             interaction-prompt="none"
-            style="width:100%;max-width:460px;height:640px;background:transparent;--progress-bar-color:#c6a96b;--progress-mask:transparent;"
+            style="width:100%;max-width:460px;height:clamp(360px,55vw,640px);background:transparent;--progress-bar-color:#c6a96b;--progress-mask:transparent;"
           ></model-viewer>
         </div>
 
@@ -448,11 +456,36 @@
         </h2>
       </header>
       <div class="gallery__grid" id="gallery-grid" role="list"></div>
+      <div class="gallery__cta fade-up">
+        <p class="gallery__cta-text">Family farms. Direct sourcing. No middlemen.</p>
+        <a href="#wholesale" class="btn btn--outline">Wholesale &amp; Private Label →</a>
+      </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
-       §7  WHOLESALE
+       §7  RECIPES — Greek recipe book slideshow
+  ═══════════════════════════════════════════════════════ -->
+  <section class="recipes" id="recipes" aria-labelledby="recipes-title">
+    <div class="recipes__inner">
+      <header class="recipes__header fade-up">
+        <span class="label">From Our Kitchen</span>
+        <h2 class="section-title recipes__title" id="recipes-title">Greek Recipes</h2>
+        <p class="recipes__subtitle">Easy. Quick. Tasty. Wholesome — by the Giannakopoulos family</p>
+      </header>
+      <div class="recipes__stage-wrap">
+        <div class="recipes__stage" id="recipes-stage" aria-live="polite"></div>
+        <button class="recipes__arrow recipes__arrow--prev" aria-label="Previous slide">&#8249;</button>
+        <button class="recipes__arrow recipes__arrow--next" aria-label="Next slide">&#8250;</button>
+      </div>
+      <div class="recipes__controls">
+        <span class="recipes__counter" id="recipes-counter">1 / 32</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       §8  WHOLESALE
   ═══════════════════════════════════════════════════════ -->
   <section class="wholesale" id="wholesale" aria-labelledby="wholesale-title">
     <div class="wholesale__bg" aria-hidden="true"></div>
@@ -510,7 +543,7 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════
-       §8  CONTACT
+       §9  CONTACT
   ═══════════════════════════════════════════════════════ -->
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="contact__inner">
@@ -534,7 +567,7 @@
           </div>
         </div>
         <div class="contact__form fade-up">
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/greeksuperfoods" method="POST" novalidate>
             <div class="contact__form-row">
               <div class="contact__form-group">
                 <label for="cn">Name</label>
@@ -655,7 +688,7 @@
     <!-- Messages -->
     <div class="chat-widget__messages" id="chat-messages">
       <div class="chat-widget__msg chat-widget__msg--bot">
-        <p>Hello, we are a working progress — we have not set up an eshop yet but you can email <a href="mailto:greeksuperfoods@yahoo.com">greeksuperfoods@yahoo.com</a> for more information. Thank you!!</p>
+        <p>Hello! We are a work in progress — we have not set up an eshop yet but you can email <a href="mailto:greeksuperfoods@yahoo.com">greeksuperfoods@yahoo.com</a> for more information. Thank you!</p>
         <button class="chat-widget__quick-btn" id="chat-question-btn">I have a question</button>
         <span class="chat-widget__timestamp">DEVOO · now</span>
       </div>

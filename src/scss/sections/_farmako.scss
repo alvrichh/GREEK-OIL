@@ -197,8 +197,12 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: $space-5;
+
+    @media (min-width: $bp-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     @media (min-width: $bp-lg) {
       grid-template-columns: repeat(4, 1fr);
@@ -238,7 +242,7 @@
     &-text {
       font-family: $font-body;
       font-size: $size-sm;
-      color: rgba($color-cream, 0.5);
+      color: rgba($color-cream, 0.72);
       line-height: 1.75;
       font-weight: 300;
     }

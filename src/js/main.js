@@ -259,6 +259,51 @@ function initChat() {
   })
 }
 
+// ─── RECIPES CAROUSEL ─────────────────────────────────────
+function initRecipesCarousel() {
+  const stage = document.getElementById('recipes-stage')
+  const counter = document.getElementById('recipes-counter')
+  const prevBtn = document.querySelector('.recipes__arrow--prev')
+  const nextBtn = document.querySelector('.recipes__arrow--next')
+  if (!stage) return
+
+  const TOTAL = 32
+  let current = 0
+
+  for (let i = 1; i <= TOTAL; i++) {
+    const num = String(i).padStart(2, '0')
+    const slide = document.createElement('div')
+    slide.className = 'recipes__slide'
+    const img = document.createElement('img')
+    img.src = `/assets/recipes/slide-${num}.png`
+    img.alt = `Greek Recipes — Page ${i}`
+    img.loading = i <= 2 ? 'eager' : 'lazy'
+    slide.appendChild(img)
+    stage.appendChild(slide)
+  }
+
+  const slides = stage.querySelectorAll('.recipes__slide')
+
+  function goTo(n) {
+    slides[current].classList.remove('active')
+    current = ((n % TOTAL) + TOTAL) % TOTAL
+    slides[current].classList.add('active')
+    if (counter) counter.textContent = `${current + 1} / ${TOTAL}`
+  }
+
+  goTo(0)
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1))
+  nextBtn?.addEventListener('click', () => goTo(current + 1))
+
+  let startX = 0
+  stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX }, { passive: true })
+  stage.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1))
+  }, { passive: true })
+}
+
 // ─── SMOOTH SCROLL ────────────────────────────────────────
 function initSmoothScroll() {
   document.addEventListener('click', (e) => {
@@ -288,6 +333,7 @@ async function init() {
     initMobileMenu()
     initContactForm()
     initSmoothScroll()
+    initRecipesCarousel()
     initChat()
 
     // GSAP — order matters: header/progress first, then sections

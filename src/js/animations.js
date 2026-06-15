@@ -291,6 +291,6 @@ export function initScrollProgress() {
 
   gsap.to(bar, {
     scaleX: 1, ease: 'none',
-    scrollTrigger: { start: 0, end: 'max', scrub: 0 },
+    scrollTrigger: { start: 0, end: 'max', scrub: 0.3 },
   })
 }

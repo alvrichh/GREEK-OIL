@@ -189,4 +189,21 @@
       transform: scale(1.08);
     }
   }
+
+  &__cta {
+    text-align: center;
+    margin-top: $space-16;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-5;
+  }
+
+  &__cta-text {
+    font-family: $font-display;
+    font-size: $size-lg;
+    color: rgba($color-white, 0.5);
+    letter-spacing: 0.08em;
+    font-weight: 300;
+  }
 }

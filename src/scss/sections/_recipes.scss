@@ -1,0 +1,139 @@
+// ─── RECIPES SECTION ──────────────────────────────────────
+.recipes {
+  background: $color-charcoal;
+  padding: $space-32 0 $space-40;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $color-gold, transparent);
+  }
+
+  &__inner {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $space-8;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-16;
+
+    .label { color: $color-gold; }
+  }
+
+  &__title {
+    color: $color-white;
+    margin-top: $space-4;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: $size-base;
+    color: rgba($color-white, 0.45);
+    font-weight: 300;
+    margin-top: $space-4;
+    letter-spacing: 0.03em;
+  }
+
+  // ─── STAGE WRAPPER ────────────────────────────────────
+  &__stage-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto $space-8;
+  }
+
+  // ─── SLIDE STAGE ──────────────────────────────────────
+  &__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 8.5 / 11;
+    background: $color-black;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow:
+      0 40px 80px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba($color-gold, 0.12);
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s $ease-smooth;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  // ─── NAVIGATION ARROWS ────────────────────────────────
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($color-black, 0.55);
+    border: 1px solid rgba($color-gold, 0.2);
+    border-radius: $radius-full;
+    color: rgba($color-white, 0.8);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all $transition-fast;
+    user-select: none;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+      background: rgba($color-gold, 0.2);
+      border-color: $color-gold;
+      color: $color-gold;
+    }
+
+    // Inside stage edges on mobile
+    &--prev { left: $space-3; }
+    &--next { right: $space-3; }
+
+    // Outside stage on wider screens
+    @media (min-width: 720px) {
+      width: 48px;
+      height: 48px;
+
+      &--prev { left: -62px; }
+      &--next { right: -62px; }
+    }
+  }
+
+  // ─── SLIDE COUNTER ────────────────────────────────────
+  &__controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $space-10;
+  }
+
+  &__counter {
+    font-family: $font-body;
+    font-size: $size-sm;
+    color: rgba($color-white, 0.35);
+    letter-spacing: 0.12em;
+  }
+}

@@ -112,7 +112,7 @@
     font-family: $font-display;
     font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 400;
-    line-height: 0.92;
+    line-height: 1.0;
     letter-spacing: -0.02em;
     color: $color-white;
     margin-bottom: $space-5;
@@ -147,7 +147,7 @@
     font-family: $font-body;
     font-size: clamp($size-sm, 1.8vw, $size-lg);
     font-weight: 300;
-    color: rgba($color-white, 0.65);
+    color: rgba($color-white, 0.85);
     line-height: 1.8;
     max-width: 44ch;
     margin-bottom: $space-8;
