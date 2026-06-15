@@ -1,0 +1,158 @@
+// ─── OLIVE BRANCH DECORATIONS ─────────────────────────────
+// SVG branches positioned at section edges, animated by GSAP
+
+.olive-branch {
+  position: absolute;
+  pointer-events: none;
+  z-index: $z-deco;
+  opacity: 0; // GSAP reveals on scroll
+  color: $color-olive;
+
+  &--tl {
+    top: -20px;
+    left: -40px;
+    width: clamp(180px, 20vw, 320px);
+    transform-origin: top left;
+  }
+
+  &--tr {
+    top: -20px;
+    right: -40px;
+    width: clamp(160px, 18vw, 280px);
+    transform: scaleX(-1);
+    transform-origin: top right;
+  }
+
+  &--bl {
+    bottom: -20px;
+    left: -30px;
+    width: clamp(140px, 16vw, 260px);
+    transform: scaleY(-1);
+    transform-origin: bottom left;
+  }
+
+  &--br {
+    bottom: -20px;
+    right: -30px;
+    width: clamp(140px, 16vw, 260px);
+    transform: scale(-1);
+    transform-origin: bottom right;
+  }
+}
+
+// ─── FLOATING LEAVES ──────────────────────────────────────
+.leaf-particle {
+  position: absolute;
+  pointer-events: none;
+  color: $color-olive;
+  opacity: 0;
+  z-index: $z-deco;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// ─── SECTION WRAPPER WITH RELATIVE FOR DECORATIONS ────────
+.has-decorations {
+  position: relative;
+  overflow: hidden;
+}
+
+// ─── PURPLE WINE BLOBS ────────────────────────────────────
+// Color tomado del label de la botella Farmako: #7B2462
+$blob-purple: #7B2462;
+
+.blob-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2; // above overlay, below vignette+content
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: blobDrift 12s ease-in-out infinite alternate;
+
+  // Blob principal — grande, con núcleo sólido tipo el círculo del sitio real
+  &--purple-1 {
+    width: clamp(380px, 44vw, 680px);
+    height: clamp(380px, 44vw, 680px);
+    background: radial-gradient(
+      circle at 45% 45%,
+      rgba($blob-purple, 0.85) 0%,
+      rgba($blob-purple, 0.55) 30%,
+      rgba($blob-purple, 0.2)  55%,
+      transparent 75%
+    );
+    filter: blur(28px);
+    opacity: 0.75;
+    bottom: -12%;
+    right: -6%;
+    animation-duration: 14s;
+    animation-delay: 0s;
+  }
+
+  // Blob secundario — difuminado suave, esquina superior derecha
+  &--purple-2 {
+    width: clamp(200px, 24vw, 400px);
+    height: clamp(200px, 24vw, 400px);
+    background: radial-gradient(circle, rgba(lighten($blob-purple, 12%), 0.7), transparent 70%);
+    filter: blur(50px);
+    opacity: 0.45;
+    top: 8%;
+    right: 10%;
+    animation-duration: 18s;
+    animation-delay: -5s;
+  }
+
+  // Blob terciario — pequeño, izquierda
+  &--purple-3 {
+    width: clamp(140px, 16vw, 260px);
+    height: clamp(140px, 16vw, 260px);
+    background: radial-gradient(circle, rgba(lighten($blob-purple, 18%), 0.65), transparent 70%);
+    filter: blur(40px);
+    opacity: 0.3;
+    top: 40%;
+    left: 4%;
+    animation-duration: 10s;
+    animation-delay: -8s;
+  }
+}
+
+@keyframes blobDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(2%, -3%) scale(1.04); }
+  66%  { transform: translate(-2%, 2%) scale(0.97); }
+  100% { transform: translate(1%, -1%) scale(1.02); }
+}
+
+// ─── HORIZONTAL GOLD RULE ─────────────────────────────────
+.gold-rule {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+  justify-content: center;
+
+  &__line {
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $color-gold);
+
+    &:last-child {
+      background: linear-gradient(to left, transparent, $color-gold);
+    }
+  }
+
+  &__symbol {
+    font-size: $size-xs;
+    color: $color-gold;
+    letter-spacing: 0.1em;
+  }
+}

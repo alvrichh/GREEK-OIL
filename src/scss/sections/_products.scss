@@ -1,0 +1,176 @@
+.products {
+  padding: $space-32 0;
+  background: $color-cream;
+  position: relative;
+  overflow: hidden;
+
+  &__bg-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba($color-olive-light, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba($color-gold, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $space-8;
+  }
+
+  &__header {
+    max-width: 60ch;
+    margin-bottom: $space-16;
+  }
+
+  &__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-5;
+  }
+
+  &__title {
+    margin-bottom: $space-5;
+    color: $color-black;
+  }
+
+  &__subtitle {
+    font-size: $size-lg;
+    color: $color-gray-mid;
+    line-height: 1.7;
+  }
+
+  // ─── FEATURED HERO PRODUCT ────────────────────────────
+  &__featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    margin-bottom: $space-24;
+    padding: $space-12;
+    background: $color-black;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    position: relative;
+
+    @media (min-width: $bp-lg) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    &-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba($color-olive, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba($color-gold, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+  }
+
+  &__featured-image {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 1;
+    max-width: 420px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius-xl;
+    }
+
+    // Floating animation class applied via JS
+    &.is-floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-16px); }
+    }
+  }
+
+  &__featured-content {
+    position: relative;
+    z-index: 1;
+    color: $color-white;
+
+    .badge {
+      display: inline-block;
+      background: $color-gold;
+      color: $color-black;
+      font-size: $size-xs;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: $space-1 $space-4;
+      border-radius: $radius-full;
+      margin-bottom: $space-6;
+    }
+
+    h3 {
+      color: $color-white;
+      font-size: clamp($size-3xl, 4vw, $size-5xl);
+      margin-bottom: $space-3;
+    }
+
+    .subtitle {
+      font-family: $font-accent;
+      font-style: italic;
+      font-size: $size-xl;
+      color: $color-gold-light;
+      margin-bottom: $space-6;
+    }
+
+    .description {
+      color: rgba($color-white, 0.72);
+      font-size: $size-base;
+      line-height: 1.75;
+      max-width: 48ch;
+      margin-bottom: $space-8;
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: $space-3;
+      margin-bottom: $space-10;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: $space-3;
+        font-size: $size-sm;
+        color: rgba($color-white, 0.8);
+
+        &::before {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border-radius: $radius-full;
+          background: $color-gold;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  // ─── PRODUCT GRID ─────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $space-8;
+    margin-bottom: $space-12;
+  }
+
+  &__more-cta {
+    text-align: center;
+  }
+}

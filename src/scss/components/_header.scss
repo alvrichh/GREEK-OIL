@@ -1,0 +1,302 @@
+.site-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: $z-sticky + 1;
+  height: $topbar-height;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 $space-8;
+  transition: opacity $transition-slow;
+
+  @media (min-width: $bp-lg) { display: flex; }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-5;
+
+    a {
+      font-family: $font-body;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba($color-white, 0.45);
+      transition: color $transition-fast;
+      &:hover { color: rgba($color-white, 0.85); }
+    }
+
+    .sep { color: rgba($color-white, 0.15); font-size: 10px; }
+    .cart { font-size: 15px; line-height: 1; }
+  }
+}
+
+// ─── MAIN HEADER ──────────────────────────────────────────
+.site-header {
+  position: fixed;
+  top: $topbar-height;
+  left: 0; right: 0;
+  z-index: $z-sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-4 $space-8 0;
+  transition:
+    background $transition-slow,
+    top $transition-slow,
+    padding $transition-slow,
+    backdrop-filter $transition-slow;
+
+  // ─── LOGO (visible por defecto, centrado) ────────────────
+  &__logo-wrap {
+    height: auto;
+    opacity: 1;
+    margin-bottom: $space-3;
+    overflow: hidden;
+    transition: height $transition-slow, opacity $transition-slow, margin $transition-slow;
+    display: none;
+
+    @media (min-width: $bp-lg) { display: flex; justify-content: center; }
+  }
+
+  &__logo-img {
+    height: 72px;
+    width: auto;
+    display: block;
+    transition: height $transition-slow;
+
+    @media (min-width: $bp-xl) { height: 84px; }
+  }
+
+  // ─── DESKTOP NAV (debajo del logo) ───────────────────────
+  &__nav {
+    display: none;
+    width: 100%;
+    padding-bottom: $space-4;
+    border-bottom: 1px solid rgba($color-white, 0.07);
+    transition: all $transition-slow;
+
+    @media (min-width: $bp-lg) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $space-10;
+    }
+
+    a {
+      font-family: $font-body;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba($color-white, 0.6);
+      transition: color $transition-fast;
+      white-space: nowrap;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%; right: 50%;
+        height: 1px;
+        background: $color-gold;
+        transition: left $transition-base, right $transition-base;
+      }
+
+      &:hover, &.active {
+        color: $color-white;
+        &::after { left: 0; right: 0; }
+      }
+    }
+
+    // ─── DROPDOWN ────────────────────────────────────────
+    .nav-dropdown {
+      position: relative;
+
+      &__toggle {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+
+        .chevron {
+          font-size: 8px;
+          transition: transform $transition-base;
+          opacity: 0.6;
+        }
+      }
+
+      &__menu {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 160px;
+        background: rgba($color-charcoal, 0.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba($color-gold, 0.1);
+        border-radius: $radius-md;
+        padding: $space-3 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-6px);
+        transition: opacity $transition-base, transform $transition-base;
+
+        a {
+          display: block;
+          padding: $space-3 $space-5;
+          font-size: 10px;
+          letter-spacing: 0.15em;
+          color: rgba($color-white, 0.55);
+          white-space: nowrap;
+          text-align: left;
+
+          &::after { display: none; }
+          &:hover { color: $color-gold; background: rgba($color-gold, 0.05); }
+        }
+      }
+
+      &:hover, &.open {
+        .nav-dropdown__toggle .chevron { transform: rotate(180deg); }
+        .nav-dropdown__menu {
+          opacity: 1;
+          pointer-events: all;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+    }
+  }
+
+  // ─── SCROLLED: logo colapsa, nav compacta arriba ─────────
+  &.scrolled {
+    top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $space-10;
+    padding: 0 $space-8;
+    height: 56px;
+    background: rgba($color-charcoal, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba($color-gold, 0.08);
+
+    // Logo compacto a la izquierda
+    .site-header__logo-wrap {
+      height: 40px;
+      opacity: 1;
+      margin: 0;
+    }
+
+    .site-header__logo-img {
+      height: 36px;
+    }
+
+    // Nav a la derecha, sin borde
+    .site-header__nav {
+      width: auto;
+      padding-bottom: 0;
+      border-bottom: none;
+      gap: $space-8;
+    }
+  }
+
+  // ─── MOBILE ROW ──────────────────────────────────────────
+  &__mobile-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: $space-3;
+
+    @media (min-width: $bp-lg) { display: none; }
+  }
+
+  &__logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    img { height: 36px; width: auto; }
+
+    .brand-name {
+      font-family: $font-display;
+      font-size: $size-lg;
+      font-weight: 400;
+      color: $color-white;
+      letter-spacing: 0.12em;
+    }
+  }
+
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: $space-2;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba($color-white, 0.8);
+      transition: all $transition-base;
+      transform-origin: center;
+    }
+
+    &.open {
+      span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    }
+  }
+
+  // ─── MOBILE NAV OVERLAY ──────────────────────────────────
+  &__mobile-nav {
+    position: fixed;
+    inset: 0;
+    background: rgba($color-charcoal, 0.98);
+    backdrop-filter: blur(24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-8;
+    transform: translateX(100%);
+    transition: transform 0.6s $ease-out-expo;
+    z-index: $z-modal;
+    pointer-events: none;
+
+    &.open {
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: $space-6; right: $space-8;
+      font-size: $size-xl;
+      color: rgba($color-white, 0.5);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color $transition-fast;
+      &:hover { color: $color-white; }
+    }
+
+    a {
+      font-family: $font-display;
+      font-size: clamp($size-2xl, 5vw, $size-4xl);
+      font-weight: 300;
+      color: rgba($color-white, 0.6);
+      letter-spacing: 0.05em;
+      transition: color $transition-fast;
+      text-align: center;
+      &:hover { color: $color-gold; }
+    }
+  }
+}

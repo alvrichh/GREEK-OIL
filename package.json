@@ -1,0 +1,21 @@
+{
+  "name": "devoo-imports",
+  "version": "1.0.0",
+  "description": "DEVOO Imports — Premium Mediterranean Olive Oil & Products",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "remove-bg": "node scripts/remove-bg.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.1.0",
+    "sass": "^1.77.6",
+    "sharp": "^0.35.1",
+    "vite": "^5.3.1"
+  }
+}

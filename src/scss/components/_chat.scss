@@ -1,0 +1,284 @@
+// ─── CHAT WIDGET ──────────────────────────────────────────
+$chat-purple: #7B2462;
+$chat-purple-light: #9b3a80;
+
+.chat-widget {
+  position: fixed;
+  bottom: $space-6;
+  right: $space-6;
+  z-index: $z-modal + 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $space-4;
+
+  // ─── BUBBLE BUTTON ──────────────────────────────────────
+  &__bubble {
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-full;
+    background: $chat-purple;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    box-shadow: 0 4px 24px rgba($chat-purple, 0.5), 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform $transition-base, box-shadow $transition-base;
+    position: relative;
+    flex-shrink: 0;
+
+    svg { width: 24px; height: 24px; }
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 32px rgba($chat-purple, 0.65), 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    &[aria-expanded="true"] {
+      background: darken($chat-purple, 8%);
+      svg { display: none; }
+      &::after {
+        content: '✕';
+        font-size: 18px;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: $radius-full;
+    background: #e53e3e;
+    color: $color-white;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-white;
+    transition: opacity $transition-fast;
+
+    .chat-widget__bubble[aria-expanded="true"] & { opacity: 0; }
+  }
+
+  // ─── PANEL ──────────────────────────────────────────────
+  &__panel {
+    width: 340px;
+    max-height: 520px;
+    background: $color-white;
+    border-radius: $radius-xl;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.9) translateY(16px);
+    transform-origin: bottom right;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s $ease-bounce, opacity 0.25s ease;
+
+    &.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media (max-width: $bp-sm) {
+      width: calc(100vw - 2rem);
+      max-height: 70vh;
+    }
+  }
+
+  // ─── HEADER ─────────────────────────────────────────────
+  &__header {
+    background: $chat-purple;
+    padding: $space-4 $space-5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  &__header-title {
+    font-family: $font-body;
+    font-size: $size-sm;
+    font-weight: 500;
+    color: $color-white;
+    letter-spacing: 0.05em;
+  }
+
+  &__back,
+  &__minimize {
+    background: none;
+    border: none;
+    color: rgba($color-white, 0.8);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color $transition-fast;
+    &:hover { color: $color-white; }
+  }
+
+  // ─── STATUS / AVATAR ────────────────────────────────────
+  &__status {
+    background: $chat-purple;
+    padding: $space-5 $space-5 $space-6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    flex-shrink: 0;
+  }
+
+  &__avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: $radius-full;
+    background: rgba($color-white, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($color-white, 0.9);
+  }
+
+  &__status-text {
+    font-family: $font-body;
+    font-size: $size-sm;
+    color: rgba($color-white, 0.85);
+    text-align: center;
+    font-weight: 300;
+  }
+
+  // ─── MESSAGES ───────────────────────────────────────────
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: $space-5;
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 4px; }
+  }
+
+  &__msg {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    &--bot {
+      align-self: flex-start;
+
+      p {
+        background: $color-white;
+        border-radius: 0 $radius-lg $radius-lg $radius-lg;
+        padding: $space-4 $space-5;
+        font-family: $font-body;
+        font-size: $size-sm;
+        color: $color-charcoal;
+        line-height: 1.65;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+
+        a {
+          color: $chat-purple;
+          font-weight: 500;
+          &:hover { text-decoration: underline; }
+        }
+      }
+    }
+
+    &--user {
+      align-self: flex-end;
+
+      p {
+        background: $chat-purple;
+        color: $color-white;
+        border-radius: $radius-lg $radius-lg 0 $radius-lg;
+        padding: $space-3 $space-5;
+        font-family: $font-body;
+        font-size: $size-sm;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__quick-btn {
+    align-self: flex-start;
+    background: $chat-purple;
+    color: $color-white;
+    border: none;
+    border-radius: $radius-full;
+    padding: $space-3 $space-6;
+    font-family: $font-body;
+    font-size: $size-sm;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background $transition-fast, transform $transition-fast;
+
+    &:hover {
+      background: $chat-purple-light;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__timestamp {
+    font-family: $font-body;
+    font-size: 10px;
+    color: rgba($color-charcoal, 0.35);
+    letter-spacing: 0.03em;
+    padding-left: $space-1;
+  }
+
+  // ─── INPUT ROW ──────────────────────────────────────────
+  &__input-row {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-5;
+    background: $color-white;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    flex-shrink: 0;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: $font-body;
+    font-size: $size-sm;
+    color: $color-charcoal;
+    background: transparent;
+    padding: $space-2 0;
+
+    &::placeholder { color: rgba($color-charcoal, 0.35); }
+  }
+
+  &__send {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    background: $chat-purple;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    flex-shrink: 0;
+    transition: background $transition-fast, transform $transition-fast;
+
+    &:hover { background: $chat-purple-light; transform: scale(1.05); }
+    &:disabled { opacity: 0.4; cursor: default; transform: none; }
+  }
+}

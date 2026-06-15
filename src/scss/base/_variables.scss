@@ -1,0 +1,109 @@
+// ─── LUXURY PALETTE ────────────────────────────────────────
+$color-charcoal:     #111111;
+$color-olive-dark:   #1f2a1f;
+$color-olive:        #556b2f;
+$color-olive-mid:    #4a6128;
+$color-olive-light:  #7a9450;
+$color-gold:         #c6a96b;
+$color-gold-light:   #d9bc84;
+$color-gold-pale:    #f0e6cc;
+$color-cream:        #f6f3eb;
+$color-cream-dark:   #ede8dc;
+$color-white:        #ffffff;
+$color-black:        #0c0c0a;
+$color-black-soft:   #1a1a16;
+$color-gray-mid:     #6e6e65;
+$color-gray-light:   #a8a89e;
+
+// ─── SEMANTIC ALIASES ──────────────────────────────────────
+$bg-dark:   $color-charcoal;
+$bg-light:  $color-cream;
+$text-dark: $color-charcoal;
+$text-light: $color-cream;
+$accent:    $color-gold;
+
+// ─── TYPOGRAPHY ────────────────────────────────────────────
+$font-display:  'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+$font-heading:  'Playfair Display', Georgia, serif;
+$font-body:     'Inter', system-ui, sans-serif;
+$font-accent:   'Cormorant Garamond', Georgia, serif;
+
+$size-2xs: 0.625rem;  //  10px
+$size-xs:  0.75rem;   //  12px
+$size-sm:  0.875rem;  //  14px
+$size-base:1rem;      //  16px
+$size-md:  1.125rem;  //  18px
+$size-lg:  1.25rem;   //  20px
+$size-xl:  1.5rem;    //  24px
+$size-2xl: 2rem;      //  32px
+$size-3xl: 2.5rem;    //  40px
+$size-4xl: 3rem;      //  48px
+$size-5xl: 4rem;      //  64px
+$size-6xl: 5.5rem;    //  88px
+$size-7xl: 7rem;      // 112px
+$size-8xl: 9rem;      // 144px
+
+// ─── SPACING ───────────────────────────────────────────────
+$space-1:  0.25rem;
+$space-2:  0.5rem;
+$space-3:  0.75rem;
+$space-4:  1rem;
+$space-5:  1.25rem;
+$space-6:  1.5rem;
+$space-8:  2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+$space-32: 8rem;
+$space-40: 10rem;
+$space-48: 12rem;
+
+// ─── LAYOUT ────────────────────────────────────────────────
+$container-max:      1280px;
+$container-wide:     1440px;
+$container-narrow:   900px;
+$nav-height:         80px;
+$topbar-height:      36px;
+
+// ─── TRANSITIONS ───────────────────────────────────────────
+$ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
+$ease-bounce:    cubic-bezier(0.34, 1.56, 0.64, 1);
+$ease-in-expo:   cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$ease-out-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+$ease-luxury:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+$transition-fast:   0.2s  $ease-smooth;
+$transition-base:   0.4s  $ease-smooth;
+$transition-slow:   0.7s  $ease-luxury;
+$transition-x-slow: 1.2s  $ease-out-expo;
+
+// ─── SHADOWS ───────────────────────────────────────────────
+$shadow-sm:   0 1px 4px rgba($color-black, 0.1);
+$shadow-md:   0 4px 20px rgba($color-black, 0.15);
+$shadow-lg:   0 12px 40px rgba($color-black, 0.2);
+$shadow-gold: 0 8px 40px rgba($color-gold, 0.2);
+
+// ─── BORDER RADIUS ─────────────────────────────────────────
+$radius-sm:   3px;
+$radius-md:   8px;
+$radius-lg:   16px;
+$radius-xl:   24px;
+$radius-full: 9999px;
+
+// ─── BREAKPOINTS ───────────────────────────────────────────
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+$bp-2xl: 1536px;
+
+// ─── Z-INDEX ───────────────────────────────────────────────
+$z-below:   -1;
+$z-base:     0;
+$z-deco:     2;
+$z-above:   10;
+$z-sticky:  50;
+$z-overlay: 100;
+$z-modal:   200;

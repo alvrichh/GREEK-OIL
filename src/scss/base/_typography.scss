@@ -1,0 +1,75 @@
+// ─── HEADINGS ─────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 400; // Cormorant looks best at 400
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+h1 { font-size: clamp($size-4xl, 8vw, $size-7xl); }
+h2 { font-size: clamp($size-3xl, 5vw, $size-5xl); }
+h3 { font-size: clamp($size-xl,  3vw, $size-3xl); }
+h4 { font-size: clamp($size-lg,  2vw, $size-2xl); }
+
+p {
+  font-family: $font-body;
+  font-size: $size-base;
+  line-height: 1.8;
+  color: $color-gray-mid;
+  font-weight: 400;
+}
+
+// ─── DISPLAY SIZES ────────────────────────────────────────
+.display-xl {
+  font-family: $font-display;
+  font-size: clamp($size-5xl, 12vw, $size-8xl);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+}
+
+.display-lg {
+  font-family: $font-display;
+  font-size: clamp($size-4xl, 9vw, $size-7xl);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+
+// ─── LABELS / EYEBROWS ────────────────────────────────────
+.label {
+  font-family: $font-body;
+  font-size: $size-2xs;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $color-gold;
+}
+
+.label--light {
+  color: rgba($color-cream, 0.55);
+}
+
+// ─── LEAD ─────────────────────────────────────────────────
+.lead {
+  font-family: $font-display;
+  font-size: clamp($size-lg, 2.5vw, $size-2xl);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.65;
+  color: $color-gray-mid;
+}
+
+// ─── CHAR SPLIT (GSAP letter animation) ───────────────────
+.split-text {
+  .char {
+    display: inline-block;
+    // GSAP sets initial state
+  }
+}
+
+// ─── UTILITY ──────────────────────────────────────────────
+a { color: inherit; text-decoration: none; }
+strong { font-weight: 600; }
+em { font-style: italic; }

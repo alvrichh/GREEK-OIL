@@ -1,0 +1,78 @@
+// Section 2: "Straight from the source" — letter by letter reveal
+.story {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: $color-charcoal;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0,0,0,0.6);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 $space-8;
+    max-width: $container-narrow;
+    margin: 0 auto;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $space-8;
+    // opacity set by gsap.set()
+  }
+
+  &__headline {
+    font-family: $font-display;
+    font-size: clamp($size-4xl, 9vw, $size-8xl);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: $color-white;
+    display: block;
+
+    // Individual chars — initial state managed by GSAP
+    .char {
+      display: inline-block;
+    }
+  }
+
+  &__divider {
+    margin: $space-10 auto;
+    // opacity set by gsap.set()
+  }
+
+  &__body {
+    font-family: $font-body;
+    font-size: clamp($size-base, 1.8vw, $size-md);
+    font-weight: 300;
+    color: rgba($color-white, 0.6);
+    line-height: 1.9;
+    max-width: 52ch;
+    margin: 0 auto;
+    // opacity set by gsap.set()
+  }
+}
