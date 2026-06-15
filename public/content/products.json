@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": "farmako-agourelaio",
+      "name": "Farmako Agourelaio",
+      "subtitle": "Early Harvest Extra Virgin Olive Oil",
+      "brand": "Farmako by DEVOO",
+      "category": "olive-oil",
+      "origin": "Southern Greece",
+      "description": "Pressed from unripe green olives at peak harvest, Farmako Agourelaio delivers an intensely fruited, peppery oil rich in polyphenols, vitamins, and natural antioxidants. More potent than conventional extra virgin — a true Mediterranean superfood.",
+      "longDescription": "Farmako Agourelaio is crafted from unripe olives — harvested before full maturity to capture maximum polyphenol content and therapeutic benefit. A great source of vitamins and minerals, it supports heart health, immune function, and daily wellness. Perfect as a finishing oil, in salads, soups, or taken neat as a daily supplement.",
+      "usage": ["Daily supplement (10–15ml)", "Finishing oil", "Salads & dressings", "Soups & drizzle"],
+      "benefits": [
+        "Rich in polyphenols and antioxidants",
+        "Supports heart and liver health",
+        "Immune system support",
+        "Cholesterol management",
+        "Anti-inflammatory properties"
+      ],
+      "image": "/assets/images/gallery-01.jpeg",
+      "imagePlaceholder": "PLACEHOLDER — replace with Farmako bottle product photo",
+      "badge": "Signature Product",
+      "available": true,
+      "sizes": [
+        { "label": "250ml", "note": "Tasting size" },
+        { "label": "500ml", "note": "Standard" },
+        { "label": "1L", "note": "Family size" }
+      ],
+      "priceNote": "Contact for wholesale pricing"
+    },
+    {
+      "id": "greek-olives",
+      "name": "Greek Table Olives",
+      "subtitle": "Sun-Cured Mediterranean Olives",
+      "brand": "DEVOO",
+      "category": "olives",
+      "origin": "Southern Greece",
+      "description": "Hand-selected olives from Southern Greek farms, cured using traditional methods for a rich, briny flavor profile that defines Mediterranean cuisine.",
+      "image": null,
+      "imagePlaceholder": "PLACEHOLDER — product image not yet available",
+      "available": true,
+      "badge": null,
+      "priceNote": "Contact for wholesale pricing"
+    },
+    {
+      "id": "greek-sea-salt",
+      "name": "Greek Sea Salt",
+      "subtitle": "Wild-Harvested Mediterranean Sea Salt",
+      "brand": "DEVOO",
+      "category": "pantry",
+      "origin": "Greece",
+      "description": "Naturally evaporated sea salt from Greek coastal waters, mineral-rich and unrefined. The purest finishing salt for any dish.",
+      "image": null,
+      "imagePlaceholder": "PLACEHOLDER — product image not yet available",
+      "available": true,
+      "badge": null,
+      "priceNote": "Contact for wholesale pricing"
+    },
+    {
+      "id": "greek-herbs",
+      "name": "Greek Mountain Herbs",
+      "subtitle": "Wild-Foraged Dried Herbs",
+      "brand": "DEVOO",
+      "category": "herbs",
+      "origin": "Southern Greece",
+      "description": "Dried oregano, thyme, and mountain herbs foraged from Greek hillsides — intensely aromatic, sustainably harvested.",
+      "image": null,
+      "imagePlaceholder": "PLACEHOLDER — product image not yet available",
+      "available": true,
+      "badge": null,
+      "priceNote": "Contact for wholesale pricing"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2024-01-01",
+    "note": "Prices not listed on public site. Contact DEVOO for wholesale/retail pricing. Product images for non-Farmako items are pending."
+  }
+}

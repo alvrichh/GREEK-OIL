@@ -1,0 +1,89 @@
+{
+  "brand": {
+    "name": "DEVOO",
+    "fullName": "DEVOO Imports",
+    "tagline": "Straight from the Source",
+    "description": "We Import. Straight from the source!",
+    "logo": "/assets/logos/devoo-logo.jpeg",
+    "copyright": "2024 DEVOO — All Rights Reserved"
+  },
+  "hero": {
+    "headline": "We Import.",
+    "headlineAccent": "Straight from the Source.",
+    "subheadline": "Premium Mediterranean olive oil and artisan products, sourced directly from family-owned farms in Southern Greece.",
+    "cta": {
+      "primary": { "text": "Explore Products", "href": "#products" },
+      "secondary": { "text": "Wholesale Inquiry", "href": "#wholesale" }
+    },
+    "videoPlaceholder": true
+  },
+  "nav": [
+    { "label": "Home", "href": "#hero" },
+    { "label": "Farmako Olive Oil", "href": "#farmako" },
+    { "label": "About Us", "href": "#about" },
+    { "label": "Gallery", "href": "#gallery" },
+    { "label": "Recipes", "href": "#recipes" },
+    { "label": "More", "href": "#", "dropdown": [
+      { "label": "Contact Us", "href": "#contact" },
+      { "label": "Wholesale", "href": "#wholesale" },
+      { "label": "My Blog", "href": "#blog" }
+    ]}
+  ],
+  "about": {
+    "title": "Straight from the Source",
+    "body": "DEVOO partners with family-owned farms and food co-ops in Southern Greece to bring the finest Mediterranean products directly to your table. Our mission: produce local sustainable foods while using practices that promote a positive social impact — built around passion and craftsmanship.",
+    "values": [
+      {
+        "icon": "🌿",
+        "title": "Direct Sourcing",
+        "text": "We work directly with family farms in Southern Greece — no middlemen."
+      },
+      {
+        "icon": "🫒",
+        "title": "Premium Quality",
+        "text": "Every product is selected for freshness, taste, and nutritional value."
+      },
+      {
+        "icon": "♻️",
+        "title": "Sustainability",
+        "text": "We champion sustainable farming and community-driven food production."
+      },
+      {
+        "icon": "🤝",
+        "title": "Lasting Relationships",
+        "text": "We build partnerships with distributors, clubs, and catering companies."
+      }
+    ]
+  },
+  "wholesale": {
+    "title": "Wholesale & Private Labeling",
+    "subtitle": "Bring Greece to your brand",
+    "body": "DEVOO serves distributors, private country clubs, and catering companies with exclusive area rights, private label programs, and VIP farm tours. Let's build something together.",
+    "services": [
+      "Distributor exclusive area rights",
+      "Private label bottling",
+      "VIP private farm tours",
+      "Private seminars (15+ attendees, virtual available)",
+      "Food show & expo presence"
+    ],
+    "cta": { "text": "Start a Wholesale Inquiry", "href": "#contact" }
+  },
+  "gallery": {
+    "title": "From Greece to Your Table",
+    "images": [
+      { "src": "/assets/images/gallery-01.jpeg", "alt": "Farmako olive oil — premium Greek harvest" },
+      { "src": "/assets/images/gallery-02.jpeg", "alt": "DEVOO — family farm sourcing in Southern Greece" },
+      { "src": "/assets/images/gallery-03.jpeg", "alt": "Mediterranean olive groves at harvest time" },
+      { "src": "/assets/images/gallery-04.jpeg", "alt": "Artisan olive oil production process" },
+      { "src": "/assets/images/gallery-05.jpeg", "alt": "DEVOO products — pure Greek olive oil" },
+      { "src": "/assets/images/gallery-06.jpeg", "alt": "Southern Greece countryside — origin of DEVOO" }
+    ]
+  },
+  "contact": {
+    "title": "Stay in Touch",
+    "subtitle": "Whether you're a distributor, restaurateur, or simply love great olive oil — we'd love to hear from you.",
+    "email": "info@devooimports.com",
+    "instagram": "@FARMAKOoliveoil",
+    "instagramUrl": "https://www.instagram.com/FARMAKOoliveoil"
+  }
+}
