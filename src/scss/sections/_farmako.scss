@@ -151,6 +151,8 @@
   position: relative;
   overflow: hidden;
 
+  .blob-wrap { z-index: 0; }
+
   &__bg-glow {
     position: absolute;
     width: 600px;

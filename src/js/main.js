@@ -233,7 +233,7 @@ function initChat() {
     input.value = ''
     sendBtn.disabled = true
     setTimeout(() => {
-      addMessage('Thanks for your message! We\'ll get back to you at info@devooimports.com as soon as possible.', 'bot')
+      addMessage('Thanks for your message! We\'ll get back to you at greeksuperfoods@yahoo.com as soon as possible.', 'bot')
       sendBtn.disabled = false
     }, 800)
   }
