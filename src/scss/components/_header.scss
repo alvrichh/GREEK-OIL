@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0 $space-8;
+  background: rgba($color-charcoal, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: opacity $transition-slow;
 
   @media (min-width: $bp-lg) { display: flex; }

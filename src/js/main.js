@@ -261,13 +261,18 @@ function initChat() {
 
 // ─── SMOOTH SCROLL ────────────────────────────────────────
 function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'))
-      if (!target) return
-      e.preventDefault()
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]')
+    if (!anchor) return
+    const href = anchor.getAttribute('href')
+    if (href === '#') return
+    const target = document.querySelector(href)
+    if (!target) return
+    e.preventDefault()
+    const header = document.querySelector('.site-header')
+    const offset = header ? header.offsetHeight : 80
+    const top = target.getBoundingClientRect().top + window.scrollY - offset
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
   })
 }
 

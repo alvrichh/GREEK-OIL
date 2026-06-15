@@ -22,11 +22,11 @@
     { "label": "Farmako Olive Oil", "href": "#farmako" },
     { "label": "About Us", "href": "#about" },
     { "label": "Gallery", "href": "#gallery" },
-    { "label": "Recipes", "href": "#recipes" },
+    { "label": "Recipes", "href": "#gallery" },
     { "label": "More", "href": "#", "dropdown": [
       { "label": "Contact Us", "href": "#contact" },
       { "label": "Wholesale", "href": "#wholesale" },
-      { "label": "My Blog", "href": "#blog" }
+      { "label": "About Us", "href": "#about" }
     ]}
   ],
   "about": {

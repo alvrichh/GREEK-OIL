@@ -268,12 +268,19 @@ export function initGalleryReveal() {
 // ─── HEADER SCROLL STATE ──────────────────────────────────
 export function initHeaderScroll() {
   const header = document.querySelector('.site-header')
+  const topbar = document.querySelector('.site-topbar')
   if (!header) return
 
   ScrollTrigger.create({
     start: 'top -80px',
     end: 99999,
-    onUpdate: (self) => header.classList.toggle('scrolled', self.isActive),
+    onUpdate: (self) => {
+      header.classList.toggle('scrolled', self.isActive)
+      if (topbar) {
+        topbar.style.opacity = self.isActive ? '0' : '1'
+        topbar.style.pointerEvents = self.isActive ? 'none' : 'all'
+      }
+    },
   })
 }
 
