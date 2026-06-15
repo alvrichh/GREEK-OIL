@@ -73,24 +73,19 @@
   ═══════════════════════════════════════════════════════ -->
   <section class="hero" id="hero" aria-labelledby="hero-title">
 
-    <!--
-      BACKGROUND:
-      Actualmente: gallery-01.jpeg (foto olivar de DEVOO)
-      Para activar video: reemplaza <div class="hero__bg">…</div> por:
-        <div class="hero__bg">
-          <video autoplay muted loop playsinline>
-            <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
-          </video>
-        </div>
-      Para poner la foto de manos: cambia el src del img abajo.
-    -->
     <div class="hero__bg" aria-hidden="true">
-      <img
-        src="/assets/images/gallery-03.jpeg"
-        alt=""
-        fetchpriority="high"
-        decoding="async"
-      />
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        disablepictureinpicture
+        disableremoteplayback
+        preload="auto"
+      >
+        <source src="/assets/videos/video.mp4" type="video/mp4">
+        <img src="/assets/images/gallery-03.jpeg" alt="" fetchpriority="high" decoding="async">
+      </video>
     </div>
 
     <div class="hero__overlay" aria-hidden="true"></div>
