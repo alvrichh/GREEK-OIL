@@ -1,0 +1,123 @@
+// ─── LAKONIA SISTER BRAND SPOTLIGHT ──────────────────────
+.lakonia {
+  background: $color-olive-dark;
+  padding: $space-32 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba($color-gold, 0.5), transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba($color-gold, 0.5), transparent);
+  }
+
+  &__inner {
+    max-width: $container-narrow;
+    margin: 0 auto;
+    padding: 0 $space-8;
+  }
+
+  &__card {
+    background: rgba($color-white, 0.03);
+    border: 1px solid rgba($color-gold, 0.2);
+    border-radius: $radius-xl;
+    padding: $space-16 $space-12;
+    text-align: center;
+    position: relative;
+
+    @media (max-width: #{$bp-md - 1px}) {
+      padding: $space-10 $space-8;
+    }
+  }
+
+  &__badge {
+    display: inline-block;
+    font-family: $font-body;
+    font-size: $size-xs;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-gold;
+    border: 1px solid rgba($color-gold, 0.35);
+    border-radius: $radius-full;
+    padding: 5px 14px;
+    margin-bottom: $space-8;
+  }
+
+  &__logo-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: $space-5;
+    filter: grayscale(0.2);
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp($size-4xl, 6vw, $size-6xl);
+    font-weight: 300;
+    color: $color-cream;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: $space-4;
+  }
+
+  &__tagline {
+    font-family: $font-display;
+    font-size: $size-xl;
+    font-style: italic;
+    font-weight: 300;
+    color: $color-gold;
+    letter-spacing: 0.06em;
+    margin-bottom: $space-8;
+  }
+
+  &__body {
+    font-family: $font-body;
+    font-size: $size-base;
+    color: rgba($color-cream, 0.65);
+    line-height: 1.85;
+    font-weight: 300;
+    max-width: 52ch;
+    margin: 0 auto $space-10;
+  }
+
+  &__cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-6;
+  }
+
+  &__domains {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    font-family: $font-body;
+    font-size: $size-sm;
+    letter-spacing: 0.08em;
+
+    a {
+      color: rgba($color-cream, 0.45);
+      transition: color $transition-fast;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba($color-gold, 0.3);
+
+      &:hover { color: $color-gold; }
+    }
+  }
+
+  &__sep {
+    color: rgba($color-cream, 0.2);
+  }
+}
