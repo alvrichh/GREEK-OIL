@@ -72,6 +72,30 @@ function initLogoTransparency() {
   }
 }
 
+// ─── HERO VIDEO AUTOPLAY (mobile fallback) ────────────────
+function initHeroVideo() {
+  const video = document.querySelector('.hero__video')
+  if (!video) return
+
+  // Ensure muted (required for autoplay policy on all browsers)
+  video.muted = true
+
+  const tryPlay = () => {
+    video.play().catch(() => {
+      // Autoplay blocked (e.g. iOS Low Power Mode) — poster/first frame shown
+    })
+  }
+
+  if (video.readyState >= 2) {
+    tryPlay()
+  } else {
+    video.addEventListener('loadeddata', tryPlay, { once: true })
+    // Fallback: try on first user interaction
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true })
+    document.addEventListener('click', tryPlay, { once: true })
+  }
+}
+
 // ─── LOAD CONTENT FROM JSONS ──────────────────────────────
 async function loadContent() {
   const [siteRes, productsRes] = await Promise.all([
@@ -329,6 +353,7 @@ async function init() {
     renderNav(site.nav)
     if (site.gallery?.images) renderGallery(site.gallery.images)
 
+    initHeroVideo()
     initLogoTransparency()
     initMobileMenu()
     initContactForm()
