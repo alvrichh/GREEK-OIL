@@ -54,11 +54,24 @@
     margin-bottom: $space-8;
   }
 
-  &__logo-icon {
-    font-size: 3rem;
+  &__logo-wrap {
+    margin-bottom: $space-8;
+
+    a { display: inline-block; }
+  }
+
+  &__logo-img {
+    width: clamp(120px, 20vw, 200px);
+    height: auto;
     display: block;
-    margin-bottom: $space-5;
-    filter: grayscale(0.2);
+    margin: 0 auto;
+    filter: brightness(0) invert(1) opacity(0.9);
+    transition: filter $transition-base, transform $transition-base;
+
+    &:hover {
+      filter: brightness(0) invert(1) opacity(1) drop-shadow(0 0 12px rgba($color-gold, 0.5));
+      transform: scale(1.04);
+    }
   }
 
   &__title {
